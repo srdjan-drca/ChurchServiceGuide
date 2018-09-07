@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using ChurchServiceCalculator.Enums;
-using ChurchServiceCalculator.Providers;
 using Xunit;
 
-namespace ChurchServiceCalculator.Test.FastType {
+namespace ChurchServiceCalculator.Test.FastRule {
 
-   public class FastTypeProviderChristmasShould {
+   public class ChristmasFastRuleShould {
 
       // Julian calendar: 15 November - 24 December
       // Gregorian calendar: 28 November - 06 January
@@ -18,7 +17,7 @@ namespace ChurchServiceCalculator.Test.FastType {
       private readonly List<DateTime> _saturdaysInChristmasFastExceptLastWeek;
       private readonly List<DateTime> _sundaysInChristmasFastExceptLastWeek;
 
-      public FastTypeProviderChristmasShould() {
+      public ChristmasFastRuleShould() {
          _mondaysInChristmasFast = new List<DateTime> {
             new DateTime(2018, 11, 20).AddDays(13),
             new DateTime(2018, 11, 27).AddDays(13),
@@ -81,82 +80,82 @@ namespace ChurchServiceCalculator.Test.FastType {
 
       // General:Water
       [Fact]
-      public void ReturnFastTypeWater_IfMondayFromNovember28TillJanuary6() {
+      public void ReturnWater_IfMondayFromNovember28TillJanuary6() {
 
          foreach (DateTime monday in _mondaysInChristmasFast) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(monday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(monday);
             Assert.Equal(FastRuleEnum.Water, fastRule);
          }
       }
 
       [Fact]
-      public void ReturnFastTypeWater_IfWednesdayFromNovember28TillJanuary6() {
+      public void ReturnWater_IfWednesdayFromNovember28TillJanuary6() {
 
          foreach (DateTime wednesday in _wednesdaysInChristmasFast) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(wednesday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(wednesday);
             Assert.Equal(FastRuleEnum.Water, fastRule);
          }
       }
 
       [Fact]
-      public void ReturnFastTypeWater_IfFridayFromNovember28TillJanuary6() {
+      public void ReturnWater_IfFridayFromNovember28TillJanuary6() {
 
          foreach (DateTime friday in _fridaysInChristmasFast) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(friday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(friday);
             Assert.Equal(FastRuleEnum.Water, fastRule);
          }
       }
 
       // General:OilAndWine
       [Fact]
-      public void ReturnFastTypeOilAndWine_IfTuesdayFromNovember28TillJanuary6() {
+      public void ReturnOilAndWine_IfTuesdayFromNovember28TillJanuary6() {
 
          foreach (DateTime tuesday in _tuesdaysInChristmasFast) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(tuesday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(tuesday);
             Assert.Equal(FastRuleEnum.OilAndWine, fastRule);
          }
       }
 
       [Fact]
-      public void ReturnFastTypeOilAndWine_IfThursdayFromNovember28TillJanuary6() {
+      public void ReturnOilAndWine_IfThursdayFromNovember28TillJanuary6() {
 
          foreach (DateTime thursday in _thursdaysInChristmasFast) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(thursday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(thursday);
             Assert.Equal(FastRuleEnum.OilAndWine, fastRule);
          }
       }
 
       [Fact]
-      public void ReturnFastTypeOilAndWine_IfSaturdayFromDecember31TillJanuary6() {
+      public void ReturnOilAndWine_IfSaturdayFromDecember31TillJanuary6() {
 
          DateTime saturday = new DateTime(2018, 12, 23).AddDays(13);
-         FastRuleEnum fastRule = FastRuleProvider.Get(saturday);
+         FastRuleEnum fastRule = Providers.FastRule.Get(saturday);
          Assert.Equal(FastRuleEnum.OilAndWine, fastRule);
       }
 
       [Fact]
-      public void ReturnFastTypeOilAndWine_IfSundayFromDecember31TillJanuary6() {
+      public void ReturnOilAndWine_IfSundayFromDecember31TillJanuary6() {
 
          DateTime sunday = new DateTime(2018, 12, 24).AddDays(13);
-         FastRuleEnum fastRule = FastRuleProvider.Get(sunday);
+         FastRuleEnum fastRule = Providers.FastRule.Get(sunday);
          Assert.Equal(FastRuleEnum.OilAndWine, fastRule);
       }
 
       // General:Fish
       [Fact]
-      public void ReturnFastTypeFish_IfSaturdayFromNovember28TillDecember30() {
+      public void ReturnFish_IfSaturdayFromNovember28TillDecember30() {
 
          foreach (DateTime saturday in _saturdaysInChristmasFastExceptLastWeek) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(saturday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(saturday);
             Assert.Equal(FastRuleEnum.Fish, fastRule);
          }
       }
 
       [Fact]
-      public void ReturnFastTypeFish_IfSundayFromNovember28TillDecember30() {
+      public void ReturnFish_IfSundayFromNovember28TillDecember30() {
 
          foreach (DateTime sunday in _sundaysInChristmasFastExceptLastWeek) {
-            FastRuleEnum fastRule = FastRuleProvider.Get(sunday);
+            FastRuleEnum fastRule = Providers.FastRule.Get(sunday);
             Assert.Equal(FastRuleEnum.Fish, fastRule);
          }
       }

@@ -17,8 +17,7 @@ namespace ChurchServiceCalculator.Providers {
          }
       }
 
-      private static readonly Dictionary<int, MonthDay> EasterTable = new Dictionary<int, MonthDay>
-      {
+      private static readonly Dictionary<int, MonthDay> EasterTable = new Dictionary<int, MonthDay> {
          { 1, new MonthDay(3, 22) },
          { 2, new MonthDay(3, 23) },
          { 3, new MonthDay(3, 24) },

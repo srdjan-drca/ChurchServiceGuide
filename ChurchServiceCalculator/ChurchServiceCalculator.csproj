@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChurchServiceCalculator</RootNamespace>
     <AssemblyName>ChurchServiceCalculator</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\Enums.cs" />
-    <Compile Include="Providers\FastRuleProvider.cs" />
+    <Compile Include="Providers\FastRule.cs" />
     <Compile Include="Extensions\ChurchDateExtensions.cs" />
     <Compile Include="Providers\MovingHolidaysDateProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

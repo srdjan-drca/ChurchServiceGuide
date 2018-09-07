@@ -8,6 +8,14 @@ namespace CommonTools.Extensions {
          return date >= startDate && date < endDate;
       }
 
+      public static bool IsWorkday(this DateTime date) {
+         return date.DayOfWeek == DayOfWeek.Monday
+            || date.DayOfWeek == DayOfWeek.Tuesday
+            || date.DayOfWeek == DayOfWeek.Wednesday
+            || date.DayOfWeek == DayOfWeek.Thursday
+            || date.DayOfWeek == DayOfWeek.Friday;
+      }
+
       public static bool IsMonday(this DateTime date) {
          return date.DayOfWeek == DayOfWeek.Monday;
       }

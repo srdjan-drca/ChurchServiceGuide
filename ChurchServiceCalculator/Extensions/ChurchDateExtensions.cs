@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using ChurchServiceCalculator.Enums;
+using ChurchServiceCalculator.Providers;
 using CommonTools.Extensions;
 
 namespace ChurchServiceCalculator.Extensions {
@@ -90,6 +91,26 @@ namespace ChurchServiceCalculator.Extensions {
             date.Month == (int)MonthEnum.November && date.Day >= 28 ||
             date.Month == (int)MonthEnum.December ||
             date.Month == (int)MonthEnum.January && date.Day <= 6;
+      }
+
+      public static bool IsGreatFast(this DateTime date) {
+         DateTime easter = MovingHolidaysDateProvider.Easter(date.Year);
+         DateTime firstDayOfGreatFast = easter.AddDays(-47);
+         DateTime lastDayOfGreatFast = easter.AddDays(-1);
+
+         return date.IsInRange(firstDayOfGreatFast, lastDayOfGreatFast);
+      }
+
+      public static bool IsApostlesFast(this DateTime date) {
+         return
+            date.Month == (int)MonthEnum.June && date.Day >= 4 ||
+            date.Month == (int)MonthEnum.July && date.Day <= 11;
+      }
+
+      public static bool IsDormitionFast(this DateTime date) {
+         return
+            date.Month == (int)MonthEnum.August && date.Day >= 14 ||
+            date.Month == (int)MonthEnum.August && date.Day <= 27;
       }
 
       public static bool IsLastWeekOfChristmasFast(this DateTime date) {
